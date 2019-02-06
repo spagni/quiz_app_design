@@ -76,7 +76,7 @@ class BackgroundPainter extends CustomPainter {
     softOrangePath.lineTo(size.width, size.height);
     softOrangePath.close();
     paint.shader = RadialGradient(
-      colors: [Colors.orange[400], Colors.orange[800]]
+      colors: [Colors.orange[300], Colors.deepOrange[700]]
     ).createShader(Rect.fromCircle(center: Offset(size.width, size.height), radius: size.height * .5));
     canvas.drawPath(softOrangePath, paint);
 
@@ -103,7 +103,8 @@ class BackgroundPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(CustomPainter old) {
-    return old != this;
+    // return old != this;
+    return false;
   }
 
 }
