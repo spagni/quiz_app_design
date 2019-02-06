@@ -53,13 +53,51 @@ class BackgroundPainter extends CustomPainter {
     paint.color = BackgroundColors.lightBlue;
     canvas.drawPath(lightBluePath, paint);
 
+    Path mainBluePath2 = Path();
+    mainBluePath2.moveTo(0, size.height * .80);
+    mainBluePath2.quadraticBezierTo(size.width * .2, size.height * .99, size.width, size.height * .98);
+    mainBluePath2.lineTo(size.width, size.height);
+    mainBluePath2.lineTo(0, size.height);
+    mainBluePath2.close();
+    paint.color = BackgroundColors.mainBlue;
+    canvas.drawPath(mainBluePath2, paint);
+
     Path darkOrangePath = Path();
     darkOrangePath.moveTo(size.width, size.height * .6);
     darkOrangePath.quadraticBezierTo(size.width * .35, size.height * .6, size.width * .20, size.height);
     darkOrangePath.lineTo(size.width, size.height);
     darkOrangePath.close();
-    paint.color = Colors.orange;
+    paint.color = BackgroundColors.darkOrange;
     canvas.drawPath(darkOrangePath, paint);
+
+    Path softOrangePath = Path();
+    softOrangePath.moveTo(size.width, size.height * .75);
+    softOrangePath.quadraticBezierTo(size.width * .60, size.height * .80, size.width * .45, size.height);
+    softOrangePath.lineTo(size.width, size.height);
+    softOrangePath.close();
+    paint.shader = RadialGradient(
+      colors: [Colors.orange[400], Colors.orange[800]]
+    ).createShader(Rect.fromCircle(center: Offset(size.width, size.height), radius: size.height * .5));
+    canvas.drawPath(softOrangePath, paint);
+
+    Path pinkPath = Path();
+    pinkPath.moveTo(size.width, size.height * .985);
+    pinkPath.quadraticBezierTo(size.width * .3, size.height , 0.0, size.height * .93);
+    pinkPath.lineTo(0.0, size.height);
+    pinkPath.lineTo(size.width, size.height);
+    pinkPath.close();
+    paint.color = BackgroundColors.pink;
+    paint.shader = null;
+    canvas.drawPath(pinkPath, paint);
+
+    Path yellowPath = Path();
+    yellowPath.moveTo(size.width, size.height * .94);
+    yellowPath.quadraticBezierTo(size.width * .8, size.height * .98, size.width * .4665, size.height * .98);
+    yellowPath.lineTo(size.width * .452, size.height);
+    yellowPath.lineTo(size.width, size.height);
+    yellowPath.close();
+    paint.color = BackgroundColors.yellow;
+    canvas.drawPath(yellowPath, paint);
     
   }
 
@@ -75,9 +113,9 @@ class BackgroundColors {
   static Color mainBlue = Color(0XFF264BBE);
   static Color darkBlue = Color(0XFF103AAE).withOpacity(.4);
   static Color softBlue = Color(0XFF2951CD);
-  static Color darkOrange = Color(0XFFF76B3A);
-  static Color softOrange = Colors.orangeAccent;
-  static Color lightBlue = Colors.lightBlue[200];//Color(0XFF34D1FE);
+  static Color darkOrange = Colors.orange[400];
+  static Color softOrange = Colors.orange[800];
+  static Color lightBlue = Colors.lightBlue[200];
   static Color softLightBlue = Colors.lightBlueAccent;
   static Color yellow = Color(0XFFFDDC57);
 }
