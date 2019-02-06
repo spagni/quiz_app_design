@@ -1,4 +1,4 @@
-# Dribbble Quiz App design implementation
+# Dribbble Quiz App UI Challenge
 
 Flutter implementation [of this dribbble design by mike@creativemints.com](https://cdn.dribbble.com/users/13307/screenshots/5836646/attachments/1257780/ios_app_game_quiz_loading_slider_menu_animation_illustration.jpg) by Sebastian Pagni
 
